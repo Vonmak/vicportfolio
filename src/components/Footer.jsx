@@ -13,7 +13,7 @@ import logo from "../assets/vic-removebg-preview.png";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-cyan-900 p-24 h-48 flex justify-between items-center text-sky-100 bottom-0 w-full">
+      <div className="bg-gray-900 px-24 h-44 flex justify-between items-center text-teal-400 w-full">
         <div className="flex flex-col">
           <div className="h-24 w-24 rounded-full">
             <Link to='/'>
@@ -23,44 +23,47 @@ const Footer = () => {
         </div>
         <div className="flex flex-col">
           <p className="font-extrabold text-lg">Useful links</p>
-          <Link className="text-sky-100 hover:text-white cursor-pointer" to="/">
+          <Link className="text-sky-100 hover:text-teal-400 cursor-pointer" to="/">
             <FaHome fontSize={20}/>
           </Link>
-          <Link className="text-sky-100 hover:text-white" to="/about">
+          <Link className="text-sky-100 hover:text-teal-400" to="/about">
             About
           </Link>
-          <Link className="text-sky-100 hover:text-white" to="/skills">
-            Skills
+          <Link className="text-sky-100 hover:text-teal-400" to="/projects">
+            Projects
+          </Link>
+          <Link className="text-sky-100 hover:text-teal-400" to="/experience">
+            Experience
           </Link>
         </div>
         <div className="flex flex-col justify-evenly">
           <p className="font-extrabold text-lg">Social Media</p>
           <Link
-            className="text-sky-100 hover:text-white flex"
+            className="text-sky-100 hover:text-teal-400 flex"
             to="https://www.instagram.com/_sniffer/"
           >
             <FaInstagram fontSize={20} /> Instagram
           </Link>
           <Link
-            className="text-sky-100 hover:text-white flex"
+            className="text-sky-100 hover:text-teal-400 flex"
             to="https://www.linkedin.com/in/victorondari/"
           >
             <FaLinkedin fontSize={20} /> LinkedIn
           </Link>
           <Link
-            className="text-sky-100 hover:text-white flex"
+            className="text-sky-100 hover:text-teal-400 flex"
             to="https://github.com/Vonmak/"
           >
             <FaGithub fontSize={20} /> Github
           </Link>
           <Link
-            className="text-sky-100 hover:text-white flex"
+            className="text-sky-100 hover:text-teal-400 flex"
             to="https://twitter.com/SniffRades"
           >
             <FaTwitter fontSize={20} /> Twitter
           </Link>
           <Link
-            className="text-sky-100 hover:text-white flex"
+            className="text-sky-100 hover:text-teal-400 flex"
             to="https://www.facebook.com/sniffrades/"
           >
             <FaFacebook fontSize={20} /> Facebook
