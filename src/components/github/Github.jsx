@@ -18,7 +18,7 @@ function Github() {
       try {
         setLoading(true);
         const reposRes = await fetch(
-          `https://api.github.com/users/${username}/repos`
+          `https://api.github.com/users/${username}/repos?sort=created&direction=desc`
         );
         const reposData = await reposRes.json();
         console.log(reposData);
@@ -46,15 +46,17 @@ function Github() {
 
   return (
     <div>
-      <div className="rounded m-3 p-4 shadow flex justify-between">
-        <div>
+      <div className="rounded m-3 p-4 shadow flex justify-between bg-gray-900 text-white">
+        <div className="flex">
           <img
             src={user.avatar_url}
             alt=""
-            className="rounded-full w-16 h-16"
+            className="rounded-full w-16 h-16 mx-2"
           />
-          <div>{user.login}</div>
-          <div>{moment(user.created_at).format("MMMM Do YYYY")}</div>
+          <div className="flex flex-col justify-center ">
+            <div>{user.login}</div>
+            <div>Joined: {moment(user.created_at).format("MMMM Do YYYY")}</div>
+          </div>
         </div>
         <div className="flex items-center">
           <div className="flex pr-1">
@@ -67,7 +69,7 @@ function Github() {
           </div>
         </div>
       </div>
-      <div className="shadow p-2">
+      <div className="border rounded text-white mb-10 p-2 bg-gray-800">
         <div className="m-3 p-4 flex justify-between">
           <div>
             <p>Profile Bio</p>

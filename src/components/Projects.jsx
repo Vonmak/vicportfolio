@@ -26,7 +26,7 @@ function Projects() {
             </p>
             <Link
               to="vonmak.github.io/akan_names/"
-              className="flex flex-row items-center text-cyan-400"
+              className="flex flex-row items-center text-teal-400"
             >
               Learn more <RxArrowRight />
             </Link>
@@ -48,7 +48,7 @@ function Projects() {
             </p>
             <a
               href="https://apartmentlandlord.herokuapp.com/"
-              className="flex flex-row items-center text-cyan-400"
+              className="flex flex-row items-center text-teal-400"
             >
               Learn more <RxArrowRight />
             </a>
@@ -72,7 +72,7 @@ function Projects() {
             </p>
             <a
               href="https://mega-dalla-frontend.herokuapp.com/"
-              className="flex flex-row items-center text-cyan-400"
+              className="flex flex-row items-center text-teal-400"
             >
               Learn more <RxArrowRight />
             </a>

@@ -14,3 +14,16 @@ body {
   filter: blur(1px);
   border-radius: 5px;
 }
+.slider {
+  display: flex;
+  animation: slider 10s linear infinite;
+}
+
+@keyframes slider {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
