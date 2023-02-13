@@ -7,7 +7,7 @@ import Github from "./github/Github";
 
 function Projects() {
   return (
-    <div className="text-cyan-900 pt-20 px-4 lg:px-24">
+    <div className="pt-20 px-4 lg:px-24">
       <h2 className="text-3xl font-bold mb-5">Featured Works</h2>
       <div className="grid grid-cols-1 mt-10 gap-5 md:grid-cols-2 lg:grid-cols-3">
         <div className="cursor-pointer flex flex-col gap-5 p-3 border border-slate-700  rounded  md:gap-3">
@@ -79,7 +79,7 @@ function Projects() {
           </div>
         </div>
 
-        <p className="text-sm text-center text-cyan-900">
+        <p className="text-sm text-center">
           To see more projects navigate into my{" "}
           <Link to="https://github.com/Vonmak/" className="hover:text-teal-400">
             Github

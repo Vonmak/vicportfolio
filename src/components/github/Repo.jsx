@@ -5,9 +5,9 @@ import { BiGitRepoForked } from "react-icons/bi";
 function Repo({ repo }) {
   return (
     repo.description && (
-      <div className="bg-white p-4 rounded shadow mb-6 text-cyan-900">
+      <div className="p-4 rounded shadow mb-6">
         <h3 className="text-lg font-bold">{repo.name}</h3>
-        <p className="text-gray-700">{repo.description}</p>
+        <p className="">{repo.description}</p>
         <div className="flex justify-around items-center mt-3">
           <div className="flex">
             <span className="flex">

@@ -12,7 +12,7 @@ function Experience() {
     slidesToScroll: 1,
   };
   return (
-    <div className="pt-20 px-24 text-cyan-900">
+    <div className="pt-20 px-24">
       <h1 className="text-3xl font-bold mb-5">Experience</h1>
       <Slider {...settings}>
         <div className="mb-10 flex flex-col items-center py-10">

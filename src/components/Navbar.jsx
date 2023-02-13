@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-// import { Bars3Icon } from "@heroicons/react/24/outline";
 import logo from "../assets/vic.png";
-// import Theme from "./theme/Theme";
+import { Theme } from "./theme/Theme";
 
 const navigation = [
   { name: "About", to: "/about" },
@@ -15,15 +14,14 @@ const navigation = [
 ];
 
 export default function Navbar() {
-  // const { theme, toggleTheme } = React.useContext(Theme.ThemeContext);
   const [navbarClass, setNavbarClass] = useState("");
   const [textClass, setTextClass] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setNavbarClass("bg-gray-900");
-        setTextClass("text-teal-400");
+        setNavbarClass("bg-gray-800");
+        setTextClass("text-white");
       } else {
         setNavbarClass("");
         setTextClass("");
@@ -49,28 +47,14 @@ export default function Navbar() {
           <Link
             key={item.name + index}
             to={item.to}
-            className={`text-lg font-bold leading-6 ${textClass} text-cyan-900  cursor-pointer`}
+            className={`text-lg font-bold leading-6 ${textClass}  cursor-pointer`}
           >
             {item.name}
           </Link>
         ))}
       </div>
       <div className="flex items-center">
-        <a
-          href="mailto:vonmak2@gmail.com"
-          className="bg-cyan-900 text-teal-400 border py-2 px-5 rounded-xl hover:bg-teal-400 hover:text-cyan-900 duration-700"
-        >
-          Write an Email
-        </a>
-
-        <a
-          href="tel:+254791665710"
-          className="bg-cyan-900 text-teal-400 border py-2 px-5 rounded-xl hover:bg-teal-400 hover:text-cyan-900 duration-700"
-        >
-          Make a Call
-        </a>
-        {/* <button onClick={toggleTheme}>Toggle Theme</button>
-        <p>Current theme: {theme}</p> */}
+        <Theme />
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import {
   FaLinkedin,
   FaInstagram,
   FaGithub,
-  FaHome
+  FaHome,
 } from "react-icons/fa";
 
 import logo from "../assets/vic-removebg-preview.png";
@@ -13,18 +13,21 @@ import logo from "../assets/vic-removebg-preview.png";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-gray-900 px-24 h-44 flex justify-between items-center text-teal-400 w-full">
+      <div className="bg-gray-900 text-teal-400 flex flex-col justify-between items-center  mx-auto sm:flex-row md:px-24 md:h-44 ">
         <div className="flex flex-col">
           <div className="h-24 w-24 rounded-full">
-            <Link to='/'>
+            <Link to="/">
               <img src={logo} alt="logo" className="rounded-full" />
             </Link>
           </div>
         </div>
         <div className="flex flex-col">
           <p className="font-extrabold text-lg">Useful links</p>
-          <Link className="text-sky-100 hover:text-teal-400 cursor-pointer" to="/">
-            <FaHome fontSize={20}/>
+          <Link
+            className="text-sky-100 hover:text-teal-400 cursor-pointer"
+            to="/"
+          >
+            <FaHome fontSize={20} />
           </Link>
           <Link className="text-sky-100 hover:text-teal-400" to="/about">
             About
