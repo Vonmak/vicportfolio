@@ -17,10 +17,7 @@ function Theme() {
   }, [isDark]);
 
   return (
-    <button
-      onClick={toggleDark}
-      className="py-2 px-4 rounded"
-    >
+    <button onClick={toggleDark} className="py-2 px-4 rounded">
       {isDark ? <FaSun /> : <FaMoon />}
     </button>
   );

@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
-// import about from "../assets/about.svg";
 
 function About() {
   return (
-    <div className="container mx-auto pt-20">
-      <div className="flex flex-col items-center p-10">
+    <section className="container mx-auto pt-20">
+      <div className="flex flex-col items-center">
         <h2 className="text-3xl font-bold mb-5">About Me</h2>
-        <p className="text-lg  mb-10">
+        <p className="text-lg mb-10">
           I am a hands-on software developer with several years of experience
           and a passion for creating exceptional things on the web. I bring a
           wealth of knowledge and expertise to every project I work on, and am
-          always eager to learn new technologies and tackle new challenges. I am
-          a hardworking, self-motivated individual who is ready to work in a
-          challenging environment and learn new skills to improve my
+          always eager to learn new technologies and tackle new challenges.
+        </p>
+        <p className="text-lg mb-10">
+          I am a hardworking, self-motivated individual who is ready to work in
+          a challenging environment and learn new skills to improve my
           performance.
         </p>
         <p className="text-lg mb-10">
@@ -33,6 +34,8 @@ function About() {
           >
             Software Development.
           </Link>
+        </p>
+        <p className="text-lg mb-10">
           I believe that my drive and determination will enable me to make a
           valuable contribution to any team.
         </p>
@@ -42,7 +45,7 @@ function About() {
           games.
         </p>
       </div>
-    </div>
+    </section>
   );
 }
 
