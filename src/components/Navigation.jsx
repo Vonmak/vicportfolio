@@ -30,7 +30,7 @@ const Navigation = ({ textClass }) => {
         ))}
       </ul>
       <button
-        className="block lg:hidden order-last"
+        className={`block lg:hidden order-last ${textClass}`}
         onClick={() => setIsVisible(!isVisible)}
       >
         <RxHamburgerMenu />

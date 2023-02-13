@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex items-center justify-between mx-auto px-24 fixed top-0 w-full z-10 ${navbarClass}`}
+      className={`flex items-center justify-between mx-auto px-6 md:px-24 fixed top-0 w-full z-10 ${navbarClass}`}
       aria-label="Global"
     >
       <div className="flex items-center">
@@ -37,7 +37,7 @@ const Navbar = () => {
       </div>
       <Navigation textClass={textClass} />
 
-      <Theme className={textClass} />
+      <Theme textClass={textClass} />
     </nav>
   );
 };
