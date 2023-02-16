@@ -6,7 +6,7 @@ const ThemeContext = React.createContext({
   toggleDark: () => {},
 });
 
-function Theme({textClass}) {
+function Theme({ textClass }) {
   const { isDark, toggleDark } = useContext(ThemeContext);
 
   useEffect(() => {
@@ -17,8 +17,8 @@ function Theme({textClass}) {
   }, [isDark]);
 
   return (
-    <button onClick={toggleDark} className={`py-2 px-4 rounded ${textClass}`}>
-      {isDark ? <FaSun /> : <FaMoon />}
+    <button onClick={toggleDark} className={`py-2 px-4 rounded`}>
+      {isDark ? <FaSun /> : <FaMoon className={textClass} />}
     </button>
   );
 }

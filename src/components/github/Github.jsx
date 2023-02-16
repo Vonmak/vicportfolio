@@ -59,13 +59,13 @@ function Github() {
           </div>
         </div>
         <div className="flex items-center">
-          <div className="flex pr-1">
-            <BsFillPeopleFill fontSize={20} />
+          <div className="flex pr-2">
+            <BsFillPeopleFill fontSize={20} className='pr-1'/> 
             Followers {user.followers}
           </div>
           |
-          <div className="flex pl-1">
-            <MdOutlineFollowTheSigns fontSize={20} /> Following{user.following}
+          <div className="flex pl-2">
+            <MdOutlineFollowTheSigns fontSize={20} className='pr-1' /> Following {user.following}
           </div>
         </div>
       </div>

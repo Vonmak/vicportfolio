@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <section className="container mx-auto">
       <div className="flex flex-col justify-evenly lg:h-screen">
-        <div className="relative mt-20 border-dashed border-b border-cyan-900 pb-5 flex flex-col items-center md:pb-0 xl:pb-16 md:flex-row">
+        <div className="mt-20 border-dashed border-b border-cyan-900 pb-5 flex flex-col items-center md:pb-0 xl:pb-16 md:flex-row">
           <div className="flex flex-col items-center space-y-1 mt-10 w-full p-2 sm:space-y-10 md:mt-0 md:w-1/3">
             <button className="py-2 px-6 border rounded-md">
               👋🏾 Hello there...
@@ -34,7 +34,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div class="bg-gray-600 h-[18rem] w-[18rem] rounded-full order-first md:w-1/3 md:order-none md:h-[16rem] lg:h-[19rem] xl:h-[24rem]">
+          <div class=" h-[18rem] w-[18rem] rounded-full order-first md:w-1/3 md:order-none md:h-[16rem] lg:h-[19rem] xl:h-[24rem]">
             <img src={ve} alt="" class="h-full w-full  object-cover" />
           </div>
           <div className="flex flex-col w-full mt-3 justify-between items-center md:mt-0 md:space-y-5 md:justify-end  md:items-end md:w-1/3">
