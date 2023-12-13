@@ -5,85 +5,64 @@ import {
   FaLinkedin,
   FaInstagram,
   FaGithub,
-  FaHome,
 } from "react-icons/fa";
 
 import logo from "../assets/vic-removebg-preview.png";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-900 text-teal-400 py-8">
-      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
-        <div className="flex flex-col text-center sm:text-left sm:mr-10">
-          <div className="h-24 w-24 rounded-full mx-auto">
+    <footer className="bg-gray-900 text-teal-400 py-8">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {/* Logo and Slogan */}
+        <div className="flex flex-col items-center justify-center ">
+          <div className="h-24 w-24 rounded-full">
             <Link to="/">
               <img src={logo} alt="logo" className="rounded-full" />
             </Link>
           </div>
-          <p className="font-extrabold text-lg mt-5">Useful links</p>
-          <Link
-            className="text-sky-100 hover:text-teal-400 cursor-pointer mb-2"
-            to="/"
-          >
-            <FaHome fontSize={20} />
-          </Link>
-          <Link className="text-sky-100 hover:text-teal-400 mb-2" to="/about">
-            About
-          </Link>
-          <Link
-            className="text-sky-100 hover:text-teal-400 mb-2"
-            to="/projects"
-          >
-            Projects
-          </Link>
-          <Link
-            className="text-sky-100 hover:text-teal-400 mb-2"
-            to="/experience"
-          >
-            Experience
-          </Link>
+          <p className="mt-2 text-center">Balancing the Riches of Life, Love, and Legacy.</p>
         </div>
-        <div className="flex flex-col text-center sm:text-left sm:mr-10">
-          <p className="font-extrabold text-lg">Social Media</p>
+
+        {/* Social Links */}
+        <div className="flex justify-center items-center ">
           <Link
-            className="text-sky-100 hover:text-teal-400 mb-2"
+            className="text-teal-400 hover:text-teal-300 mx-2"
             to="https://www.instagram.com/_sniffer/"
           >
-            <FaInstagram fontSize={20} /> Instagram
+            <FaInstagram fontSize={20} />
           </Link>
           <Link
-            className="text-sky-100 hover:text-teal-400 mb-2"
+            className="text-teal-400 hover:text-teal-300 mx-2"
             to="https://www.linkedin.com/in/victorondari/"
           >
-            <FaLinkedin fontSize={20} /> LinkedIn
+            <FaLinkedin fontSize={20} />
           </Link>
           <Link
-            className="text-sky-100 hover:text-teal-400 mb-2"
+            className="text-teal-400 hover:text-teal-300 mx-2"
             to="https://github.com/Vonmak/"
           >
-            <FaGithub fontSize={20} /> Github
+            <FaGithub fontSize={20} />
           </Link>
           <Link
-            className="text-sky-100 hover:text-teal-400 mb-2"
+            className="text-teal-400 hover:text-teal-300 mx-2"
             to="https://twitter.com/SniffRades"
           >
-            <FaTwitter fontSize={20} /> Twitter
+            <FaTwitter fontSize={20} />
           </Link>
           <Link
-            className="text-sky-100 hover:text-teal-400 mb-2"
+            className="text-teal-400 hover:text-teal-300 mx-2"
             to="https://www.facebook.com/sniffrades/"
           >
-            <FaFacebook fontSize={20} /> Facebook
+            <FaFacebook fontSize={20} />
           </Link>
         </div>
-        <div className="flex flex-col">
-          <p className="font-extrabold text-lg">Newsletter</p>
+
+        {/* Copyright */}
+        <div className="flex justify-center items-center py-4 ">
+          <p>&copy; 2023 Rades. All rights reserved.</p>
         </div>
       </div>
-      <div className="container mx-auto text-center">
-        <p className="text-sm">&copy; 2023 Rades. All rights reserved.</p>
-      </div>
-    </div>
+    </footer>
   );
 };
 
