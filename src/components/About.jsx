@@ -10,56 +10,66 @@ function About() {
           <img src={ve} alt="" class="h-full w-full  object-cover" />
         </div>
         <p class="text-xl font-bold my-10 text-center">
-          
-            Welcome to my Digital Space!!
-          </p>
+          Welcome to my Digital Space!!
+        </p>
 
         <p class="text-lg mb-10 text-center">
-          
-            Victor, a Technical Trainer with over a year of experience teaching
-            IT and Computer Science to college students. Skilled in managing
-            classroom sessions to enhance engagement and learning outcomes.
-          </p>
+          Victor, a Technical Trainer with over a year of experience teaching IT
+          and Computer Science to college students. <br /> Skilled in managing
+          classroom sessions to enhance engagement and learning outcomes.
+        </p>
 
         <p class="text-lg mb-10 text-center">
-          
-            With a 2+ year coding background, I focus on crafting innovative
-            digital experiences and providing reliable, clean code for complex
-            problem-solving. Proficient in Python, Java, C, JavaScript,
-            frameworks like Django, Flask, React, Vue, Angular, Springboot,
-            Laravel, and tools such as VS Code, Android Studio Code, Eclipse,
-            Docker, and Terminal.
-          </p>
+          With a 2+ year coding background, I focus on crafting innovative
+          digital experiences and providing reliable, clean code for complex
+          problem-solving. <br /> Proficient in Python, Java, C, JavaScript,
+          frameworks like Django, Flask, React, Vue, Angular, Springboot,
+          Laravel, and tools such as VS Code, Android Studio Code, Eclipse,
+          Docker, and Terminal.
+        </p>
 
         <p class="text-lg mb-10 text-center">
-          
-            Alumnus of <Link to="https://moringaschool.com/" className="text-teal-400">Moringa School's </Link> Software Development course, setting the
-            foundation for my professional journey. Eager to collaborate on tech
-            projects and dedicated to finding optimal solutions.
-          
+          Alumnus of{" "}
+          <Link to="https://moringaschool.com/" className="text-teal-400">
+            Moringa School's{" "}
+          </Link>{" "}
+          Software Development course, setting the foundation for my
+          professional journey. <br /> Eager to collaborate on tech projects and
+          dedicated to finding optimal solutions.
         </p>
 
         <p class="text-lg mb-8 text-center">
-          
-            Passionate about shaping the future of digital innovation. Outside
-            coding, I enjoy books, hiking, and exploring virtual realms through
-            gaming.
-          
+          Passionate about shaping the future of digital innovation. <br />{" "}
+          Outside coding, I enjoy books, hiking, and exploring virtual realms
+          through gaming.
         </p>
 
         <div class="text-lg mb-10 text-center">
           <p>
             For my education details, refer to my CV:{" "}
-            <a href="https://drive.google.com/file/d/1Lcx1-iZwV_bGCChPxl6CA2qDaphX-l3Y/view?usp=share_link" className="text-teal-400">
+            <a
+              href="https://drive.google.com/file/d/1Lcx1-iZwV_bGCChPxl6CA2qDaphX-l3Y/view?usp=share_link"
+              className="text-teal-400"
+            >
               Resume Link
             </a>
           </p>
           <p>
             Contact: Email -{" "}
-            <a href="mailto:vonmak2@gmail.com" className="text-teal-400">vonmak2@gmail.com</a> | LinkedIn
-            -{" "}
-            <a href="https://www.linkedin.com/in/victorondari/" className="text-teal-400">victorondari</a>{" "}
-            | Twitter - <a href="https://twitter.com/SniffRades" className="text-teal-400">@SniffRades</a>
+            <a href="mailto:vonmak2@gmail.com" className="text-teal-400">
+              vonmak2@gmail.com
+            </a>{" "}
+            | LinkedIn -{" "}
+            <a
+              href="https://www.linkedin.com/in/victorondari/"
+              className="text-teal-400"
+            >
+              victorondari
+            </a>{" "}
+            | Twitter -{" "}
+            <a href="https://twitter.com/SniffRades" className="text-teal-400">
+              @SniffRades
+            </a>
           </p>
         </div>
       </div>
