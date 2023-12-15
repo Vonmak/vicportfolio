@@ -46,7 +46,7 @@ function Github() {
 
   return (
     <div>
-      <div className="rounded m-3 p-4 shadow flex justify-between bg-gray-900 text-white">
+      <div className="rounded m-3 p-4 shadow-lg flex justify-between">
         <div className="flex">
           <img
             src={user.avatar_url}
@@ -69,7 +69,7 @@ function Github() {
           </div>
         </div>
       </div>
-      <div className="border rounded text-white mb-10 p-2 bg-gray-800">
+      <div className="border rounded mb-10 p-2 ">
         <div className="m-3 p-4 flex justify-between">
           <div>
             <p>Profile Bio</p>

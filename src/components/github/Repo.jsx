@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Repo({ repo }) {
   return (
     repo.description && (
-      <div className="p-4 rounded shadow mb-6 bg-gray-900 text-white">
+      <div className="p-4 rounded shadow-2xl mb-6">
         <h3 className="text-lg font-bold">{repo.name}</h3>
         <p className="">{repo.description}</p>
         <div className="flex justify-around items-center mt-3">
