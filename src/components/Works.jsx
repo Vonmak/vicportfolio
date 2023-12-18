@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import p1 from "../assets/p1.png";
-import p2 from "../assets/p2.png";
+import p2 from "../assets/p6.png";
 import p3 from "../assets/p3.png";
 import { RxArrowRight } from "react-icons/rx";
 
@@ -18,7 +18,7 @@ function Works() {
             and gender input.
           </p>
           <Link
-            to="vonmak.github.io/akan_names/"
+            to="https://vonmak.github.io/akan_names/"
             className="flex flex-row items-center text-teal-400"
           >
             Learn more <RxArrowRight />
@@ -30,13 +30,12 @@ function Works() {
           <img src={p2} alt="" className="w-full h-full object-cover rounded" />
         </div>
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold">Qejani</h2>
+          <h2 className="text-xl font-semibold">StudentKeja</h2>
           <p className="text-[15px]">
-            This project is mean't to help landlords manage their apartments and
-            tenants make payment to the landlord easily.
+          Property/hostel management
           </p>
           <a
-            href="https://apartmentlandlord.herokuapp.com/"
+            href="https://studentkeja.netlify.app/"
             className="flex flex-row items-center text-teal-400"
           >
             Learn more <RxArrowRight />
@@ -56,20 +55,13 @@ function Works() {
             biuld their business.
           </p>
           <a
-            href="https://mega-dalla-frontend.herokuapp.com/"
+            href="https://github.com/Vonmak/meggadalla_angular-python"
             className="flex flex-row items-center text-teal-400"
           >
             Learn more <RxArrowRight />
           </a>
         </div>
       </div>
-
-      <p className="text-sm text-center">
-        To see more projects navigate into my{" "}
-        <Link to="https://github.com/Vonmak/" className="hover:text-teal-400">
-          Github
-        </Link>
-      </p>
     </div>
   );
 }
