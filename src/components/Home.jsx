@@ -144,7 +144,7 @@ export default function Home() {
           </Link>
         </p>
       </div>
-      <div class="text-lg mb-10 text-center">
+      <div className="text-lg mb-10 text-center">
           <p>
             For my Education details and more on my Experience, refer to my CV:{" "}
             <a
