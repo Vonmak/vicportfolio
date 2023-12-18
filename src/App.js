@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import About from "./components/About";
-import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -17,7 +16,6 @@ function App() {
           <Route path="/*" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
-          <Route path="/experience" element={<Experience />} />
         </Routes>
         <WhatsApp />
         <Footer />
