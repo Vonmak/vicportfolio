@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import ve from "../assets/ve.png";
-import { FaTwitter, FaLinkedin, FaGithub, FaBuilding } from "react-icons/fa";
-import Mail from "./Mail";
-import Phone from "./phone";
+import ve from "../assets/WhatsApp_Image_2023-12-15_at_15.13.00-removebg-preview.png";
+import vic from "../assets/mainvic.jpeg";
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import Works from "./Works";
 
 export default function Home() {
   return (
@@ -13,12 +13,30 @@ export default function Home() {
             <button className="py-2 px-6 border rounded-md">
               👋🏾 Hello there...
             </button>
+            <p className="text-teal-500 shadow-lg shadow-teal-500 p-2">
+              {" "}
+              <span className="font-bold">Welcome</span> to my Digital space!!
+            </p>
 
             <div className="">
               <div className="text-xl font-extrabold">I'm</div>
               <div className=" text-5xl font-extrabold">Victor Ondari.</div>
-              <div className="text-xl font-extrabold">Software Engineer</div>
+              <div className="text-xl font-extrabold">a Software Engineer</div>
             </div>
+          </div>
+          <div className=" h-[18rem] w-[18rem] rounded-full order-first md:w-1/3 md:order-none md:h-[16rem] lg:h-[19rem] xl:h-[24rem]">
+            <img src={ve} alt="" className="h-full w-full  object-cover" />
+          </div>
+          <div className="flex flex-col w-full mt-3 justify-between items-center md:mt-0 md:space-y-5 md:justify-end  md:items-end md:w-1/3">
+            <p className="mt-2 py-2 px-6 rounded-md text-lg font-bold">
+              Technical Trainer
+            </p>
+            <Link
+              to="http://eai.ac.ke/"
+              className="flex py-2 px-6 rounded-md text-xl font-extrabold mt-2"
+            >
+              Equip Africa Institute
+            </Link>
             <div className="flex flex-row space-x-2 text-2xl pt-3 md:pt-0">
               <Link
                 className="px-2"
@@ -34,33 +52,10 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div class=" h-[18rem] w-[18rem] rounded-full order-first md:w-1/3 md:order-none md:h-[16rem] lg:h-[19rem] xl:h-[24rem]">
-            <img src={ve} alt="" class="h-full w-full  object-cover" />
-          </div>
-          <div className="flex flex-col w-full mt-3 justify-between items-center md:mt-0 md:space-y-5 md:justify-end  md:items-end md:w-1/3">
-            <div className="flex ">
-              <div className="mr-2 py-2 px-6 border rounded-md text-lg font-bold">
-                <Mail />
-              </div>
-              <div className=" py-2 px-6 border rounded-md text-lg font-bold">
-                <Phone />
-              </div>
-            </div>
-            <p className="mt-2 py-2 px-6 border rounded-md text-lg font-bold">
-              Technical Trainer
-            </p>
-            <Link
-              to="http://eai.ac.ke/"
-              className="flex py-2 px-6 border rounded-md text-xl font-extrabold mt-2"
-            >
-              <FaBuilding fontSize={20} />
-              Equip Africa Institute
-            </Link>
-          </div>
         </div>
         <div className="flex flex-col gap-5 p-8 text-center md:px-0 md:py-10 md:flex-row ">
           <div className="border flex flex-col items-center space-y-5 justify-center border-slate-700 h-48 rounded md:w-1/3 ">
-            <p>1 Year as a</p>
+            <p>2 Years as a</p>
             <p className="block text-3xl font-bold">Developer</p>
           </div>
           <div className="border flex flex-col items-center space-y-5 justify-center border-slate-700 h-48 rounded md:w-1/3 ">
@@ -101,6 +96,82 @@ export default function Home() {
           </svg>
         </div>
       </div>
+      <div>
+        <h2 className="font-bold text-3xl text-center md:text-start">About</h2>
+        <div
+          className="bg-gray-800 text-white text-xl text-center p-10 leading-loose"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1)), url(${vic})`,
+            backgroundSize: "cover",
+            backgroundPosition: "right",
+            backgroundBlendMode: "multiply",
+          }}
+        >
+          <p className="">
+            Victor, a Technical Trainer with teaching experience in IT and
+            Computer Science, adept at enhancing engagement and learning
+            outcomes in classroom settings.
+            <br />
+            With a 2+ year coding background, I specialize in crafting
+            innovative digital experiences and delivering reliable, clean code
+            for complex problem-solving. Eager to collaborate on tech projects
+            and dedicated to finding optimal solutions.
+            
+          </p>
+          <p className="text-sm">For more {" "}{">>"}{" "}
+            <Link
+              to="/about"
+              className="text-sm text-teal-400 hover:text-teal-300 mx-2"
+            >
+              Click here!!
+            </Link></p>
+        </div>
+      </div>
+
+      <div className="my-10">
+        <h2 className="font-bold text-3xl my-8 text-center md:text-start">
+          Sample projects
+        </h2>
+        <Works />
+
+        <p className="text-sm">
+          To see more projects {">>"}
+          <Link
+            to="/projects"
+            className="text-teal-400 hover:text-teal-300 mx-2"
+          >
+            Click here!!
+          </Link>
+        </p>
+      </div>
+      <div class="text-lg mb-10 text-center">
+          <p>
+            For my Education details and more on my Experience, refer to my CV:{" "}
+            <a
+              href="https://drive.google.com/file/d/1Lcx1-iZwV_bGCChPxl6CA2qDaphX-l3Y/view?usp=share_link"
+              className="text-teal-400"
+            >
+              Resume Link
+            </a>
+          </p>
+          <p>
+            Contact: Email -{" "}
+            <a href="mailto:vonmak2@gmail.com" className="text-teal-400">
+              vonmak2@gmail.com
+            </a>{" "}
+            | LinkedIn -{" "}
+            <a
+              href="https://www.linkedin.com/in/victorondari/"
+              className="text-teal-400"
+            >
+              victorondari
+            </a>{" "}
+            | Twitter -{" "}
+            <a href="https://twitter.com/SniffRades" className="text-teal-400">
+              @SniffRades
+            </a>
+          </p>
+        </div>
     </section>
   );
 }
