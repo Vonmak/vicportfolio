@@ -9,7 +9,6 @@ const navigation = [
   { name: "Home", to: "/" },
   { name: "About", to: "/about" },
   { name: "Projects", to: "/projects" },
-  { name: "Experience", to: "/experience" },
   {
     name: "Download my CV",
     to:
@@ -37,7 +36,7 @@ const Navbar = () => {
   return (
     <nav
       className={`flex justify-between py-5 items-center px-2 md:px-5 z-50 fixed top-0 w-full shadow-md ${
-        scrollPosition > 10 ? "bg-gray-800 text-white" : ""
+        scrollPosition > 0 ? "bg-gray-800 text-white" : ""
       }`}
     >
       <Link to="/" className="flex items-center">
@@ -51,7 +50,7 @@ const Navbar = () => {
 
       <div
         className={`flex flex-col absolute top-0 py-5 duration-300 ${
-          scrollPosition > 10 ? "bg-gray-800 text-white" : "bg-slate-300 text-gray-800"
+          scrollPosition > 0 ? "bg-gray-800 text-white" : "bg-slate-400"
         }  ${
           active ? "-right-[0%]" : "-right-[100%]"
         } w-full items-center justify-center space-y-5 md:right-0 md:items-center md:opacity-[100%] md:h-max md:space-y-0 md:bg-transparent md:space-x-5 md:relative md:flex-row md:top-0 md:w-max`}
