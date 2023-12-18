@@ -128,7 +128,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="my-10">
+      <div className="my-10 mx-10 md:mx-0">
         <h2 className="font-bold text-3xl my-8 text-center md:text-start">
           Sample projects
         </h2>
@@ -144,7 +144,7 @@ export default function Home() {
           </Link>
         </p>
       </div>
-      <div className="text-lg mb-10 text-center">
+      <div className="text-lg mb-10 text-center mx-10 md:mx-0">
           <p>
             For my Education details and more on my Experience, refer to my CV:{" "}
             <a
