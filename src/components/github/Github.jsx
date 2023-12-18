@@ -38,7 +38,19 @@ function Github() {
   }, [username]);
 
   if (loading) {
-    return <div>{Dna}Loading...</div>;
+    return (
+      <div>
+        <Dna
+          visible={true}
+          height="80"
+          width="full"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+        Loading...
+      </div>
+    );
   }
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -60,12 +72,13 @@ function Github() {
         </div>
         <div className="flex items-center">
           <div className="flex pr-2">
-            <BsFillPeopleFill fontSize={20} className='pr-1'/> 
+            <BsFillPeopleFill fontSize={20} className="pr-1" />
             Followers {user.followers}
           </div>
           |
           <div className="flex pl-2">
-            <MdOutlineFollowTheSigns fontSize={20} className='pr-1' /> Following {user.following}
+            <MdOutlineFollowTheSigns fontSize={20} className="pr-1" /> Following{" "}
+            {user.following}
           </div>
         </div>
       </div>
