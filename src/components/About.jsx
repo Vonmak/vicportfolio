@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import ve from "../assets/WhatsApp Image 2023-12-15 at 13.02.04.jpeg";
+import ve from "../assets/mainvic.jpeg";
+import Skills from "./Skills";
 
 function About() {
   return (
@@ -22,11 +23,9 @@ function About() {
         <p class="text-lg mb-10 text-center">
           With a 2+ year coding background, I focus on crafting innovative
           digital experiences and providing reliable, clean code for complex
-          problem-solving. <br /> Proficient in Python, Java, C, JavaScript,
-          frameworks like Django, Flask, React, Vue, Angular, Springboot,
-          Laravel, and tools such as VS Code, Android Studio Code, Eclipse,
-          Docker, and Terminal.
+          problem-solving.
         </p>
+        <Skills />
 
         <p class="text-lg mb-10 text-center">
           Alumnus of{" "}
@@ -46,7 +45,7 @@ function About() {
 
         <div class="text-lg mb-10 text-center">
           <p>
-            For my education details, refer to my CV:{" "}
+            For my Education details and more on my Experience, refer to my CV:{" "}
             <a
               href="https://drive.google.com/file/d/1Lcx1-iZwV_bGCChPxl6CA2qDaphX-l3Y/view?usp=share_link"
               className="text-teal-400"
