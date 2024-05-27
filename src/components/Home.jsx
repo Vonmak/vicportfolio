@@ -148,7 +148,7 @@ export default function Home() {
           <p>
             For my Education details and more on my Experience, refer to my CV:{" "}
             <a
-              href="https://drive.google.com/file/d/1Lcx1-iZwV_bGCChPxl6CA2qDaphX-l3Y/view?usp=share_link"
+              href="https://drive.google.com/file/d/1qxWfZEo1Zvgg0UKyMcU1ZIDStjdOUsv9/view?usp=sharing"
               className="text-teal-400"
             >
               Resume Link
