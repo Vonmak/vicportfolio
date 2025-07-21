@@ -21,7 +21,6 @@ function Github() {
           `https://api.github.com/users/${username}/repos?sort=created&direction=desc`
         );
         const reposData = await reposRes.json();
-        console.log(reposData);
         setRepos(reposData);
 
         const userRes = await fetch(`https://api.github.com/users/${username}`);
@@ -62,7 +61,7 @@ function Github() {
         <div className="flex">
           <img
             src={user.avatar_url}
-            alt=""
+            alt={user.login ? `${user.login} GitHub avatar` : "GitHub avatar"}
             className="rounded-full w-16 h-16 mx-2"
           />
           <div className="flex flex-col justify-center ">

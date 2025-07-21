@@ -9,7 +9,7 @@ function Works() {
     <div className="grid grid-cols-1 mt-10 gap-5 md:grid-cols-2 lg:grid-cols-3">
       <div className="cursor-pointer flex flex-col gap-5 p-3 border border-slate-700  rounded  md:gap-3">
         <div className="h-48">
-          <img src={p1} alt="" className="w-full h-full object-cover rounded" />
+          <img src={p1} alt="Akan Names project screenshot" className="w-full h-full object-cover rounded" />
         </div>
         <div className="space-y-3">
           <h2 className="text-xl font-semibold">Akan Names</h2>
@@ -30,7 +30,7 @@ function Works() {
       </div>
       <div className="cursor-pointer flex flex-col gap-5 p-3 border border-slate-700  rounded  md:gap-3">
         <div className="h-48">
-          <img src={p2} alt="" className="w-full h-full object-cover rounded" />
+          <img src={p2} alt="StudentKeja project screenshot" className="w-full h-full object-cover rounded" />
         </div>
         <div className="space-y-3">
           <h2 className="text-xl font-semibold">StudentKeja</h2>
@@ -50,7 +50,7 @@ function Works() {
       </div>
       <div className="cursor-pointer flex flex-col gap-5 p-3 border border-slate-700  rounded  md:gap-3">
         <div className="h-48">
-          <img src={p7} alt="" className="w-full h-full object-cover rounded" />
+          <img src={p7} alt="Q-Wash project screenshot" className="w-full h-full object-cover rounded" />
         </div>
         <div className="space-y-3">
           <h2 className="text-xl font-semibold">Q-Wash</h2>

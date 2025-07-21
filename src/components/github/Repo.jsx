@@ -29,12 +29,14 @@ function Repo({ repo }) {
           </div>
         </div>
         {repo.homepage && (
-          <Link
-            to={repo.homepage}
+          <a
+            href={repo.homepage}
             className="rounded shadow p-1 bg-cyan-900 text-teal-400"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Run
-          </Link>
+          </a>
         )}
       </div>
     )

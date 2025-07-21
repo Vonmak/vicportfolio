@@ -21,6 +21,7 @@ const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
     };
@@ -59,14 +60,27 @@ const Navbar = () => {
           <RxCross1 onClick={() => setActive(!active)} />
         </div>
         {navigation.map((item, index) => (
-          <Link
-            to={item.to}
-            key={item.name + index}
-            className={`text-xl font-extrabold md:text-xl`}
-            onClick={() => setActive(!active)}
-          >
-            {item.name}
-          </Link>
+          item.to.startsWith('http') ? (
+            <a
+              href={item.to}
+              key={item.name + index}
+              className={`text-xl font-extrabold md:text-xl`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setActive(!active)}
+            >
+              {item.name}
+            </a>
+          ) : (
+            <Link
+              to={item.to}
+              key={item.name + index}
+              className={`text-xl font-extrabold md:text-xl`}
+              onClick={() => setActive(!active)}
+            >
+              {item.name}
+            </Link>
+          )
         ))}
 
         <div className="hidden md:block">

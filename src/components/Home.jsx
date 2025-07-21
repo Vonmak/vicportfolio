@@ -25,31 +25,31 @@ export default function Home() {
             </div>
           </div>
           <div className=" h-[18rem] w-[18rem] rounded-full order-first md:w-1/3 md:order-none md:h-[16rem] lg:h-[19rem] xl:h-[24rem]">
-            <img src={ve} alt="" className="h-full w-full  object-cover" />
+            <img src={ve} alt="Victor Ondari profile" className="h-full w-full  object-cover" />
           </div>
           <div className="flex flex-col w-full mt-3 justify-between items-center md:mt-0 md:space-y-5 md:justify-end  md:items-end md:w-1/3">
             <p className="mt-2 py-2 px-6 rounded-md text-lg font-bold">
               Technical Trainer
             </p>
-            <Link
-              to="http://eai.ac.ke/"
+            <a
+              href="https://eai.ac.ke/"
               className="flex py-2 px-6 rounded-md text-xl font-extrabold mt-2"
             >
               Equip Africa Institute
-            </Link>
+            </a>
             <div className="flex flex-row space-x-2 text-2xl pt-3 md:pt-0">
-              <Link
+              <a
                 className="px-2"
-                to="https://www.linkedin.com/in/victorondari/"
+                href="https://www.linkedin.com/in/victorondari/"
               >
                 <FaLinkedin fontSize={20} />
-              </Link>
-              <Link className="px-2" to="https://github.com/Vonmak/">
+              </a>
+              <a className="px-2" href="https://github.com/Vonmak/">
                 <FaGithub fontSize={20} />
-              </Link>
-              <Link className="px-2" to="https://twitter.com/SniffRades">
+              </a>
+              <a className="px-2" href="https://twitter.com/SniffRades">
                 <FaTwitter fontSize={20} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

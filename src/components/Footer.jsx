@@ -25,41 +25,51 @@ const Footer = () => {
 
         {/* Social Links */}
         <div className="flex justify-center items-center ">
-          <Link
+          <a
             className="text-teal-400 hover:text-teal-300 mx-2"
-            to="https://www.instagram.com/_sniffer/"
+            href="https://www.instagram.com/_sniffer/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaInstagram fontSize={20} />
-          </Link>
-          <Link
+          </a>
+          <a
             className="text-teal-400 hover:text-teal-300 mx-2"
-            to="https://www.linkedin.com/in/victorondari/"
+            href="https://www.linkedin.com/in/victorondari/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaLinkedin fontSize={20} />
-          </Link>
-          <Link
+          </a>
+          <a
             className="text-teal-400 hover:text-teal-300 mx-2"
-            to="https://github.com/Vonmak/"
+            href="https://github.com/Vonmak/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaGithub fontSize={20} />
-          </Link>
-          <Link
+          </a>
+          <a
             className="text-teal-400 hover:text-teal-300 mx-2"
-            to="https://twitter.com/SniffRades"
+            href="https://twitter.com/SniffRades"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaTwitter fontSize={20} />
-          </Link>
-          <Link
+          </a>
+          <a
             className="text-teal-400 hover:text-teal-300 mx-2"
-            to="https://www.facebook.com/sniffrades/"
+            href="https://www.facebook.com/sniffrades/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <FaFacebook fontSize={20} />
-          </Link>
+          </a>
         </div>
 
         {/* Copyright */}
         <div className="flex justify-center items-center py-4 ">
-          <p>&copy; 2023 Rades. All rights reserved.</p>
+          <p>&copy; 2025 Rades. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -7,8 +7,8 @@ function About() {
     <section className="container mx-auto px-4">
       <div className="flex flex-col items-center mt-28">
         <h2 className="text-3xl font-bold mb-5">About Me</h2>
-        <div class=" h-[18rem] w-[18rem] rounded-full order-first md:w-1/3 md:order-none md:h-[16rem] lg:h-[19rem] xl:h-[24rem]">
-          <img src={ve} alt="" className="h-full w-full  object-cover" />
+        <div className=" h-[18rem] w-[18rem] rounded-full order-first md:w-1/3 md:order-none md:h-[16rem] lg:h-[19rem] xl:h-[24rem]">
+          <img src={ve} alt="Victor Ondari main profile" className="h-full w-full  object-cover" />
         </div>
         <p className="text-xl font-bold my-10 text-center">
           Welcome to my Digital Space!!
@@ -29,9 +29,9 @@ function About() {
 
         <p className="text-lg mb-10 text-center">
           Alumnus of{" "}
-          <Link to="https://moringaschool.com/" className="text-teal-400">
+          <a href="https://moringaschool.com/" className="text-teal-400" target="_blank" rel="noopener noreferrer">
             Moringa School's{" "}
-          </Link>{" "}
+          </a>{" "}
           Software Development course, setting the foundation for my
           professional journey. <br /> Eager to collaborate on tech projects and
           dedicated to finding optimal solutions.
