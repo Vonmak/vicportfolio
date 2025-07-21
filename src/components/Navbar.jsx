@@ -32,42 +32,76 @@ const Navbar = () => {
     };
   }, []);
 
-  const myName = "Victor";
 
   return (
     <nav
-      className={`flex justify-between py-5 items-center px-2 md:px-5 z-50 fixed top-0 w-full shadow-md ${
-        scrollPosition > 0 ? "bg-gray-800 text-white" : ""
-      }`}
+      className={`backdrop-blur-md bg-white/70 dark:bg-gray-900/80 fixed top-0 left-0 w-full z-50 shadow transition-all duration-300 ${scrollPosition > 0 ? 'border-b border-gray-200 dark:border-gray-700' : ''}`}
     >
-      <Link to="/" className="flex items-center">
-        <img
-          src={logo}
-          alt="logo"
-          className="mr-6 rounded-full w-16 h-16 pt-1"
-        />
-        <code className="font-semibold text-2xl text-teal-400">{`{ ${myName} }`}</code>
-      </Link>
-
-      <div
-        className={`flex flex-col absolute top-0 py-5 duration-300 ${
-          scrollPosition > 0 ? "bg-gray-800 text-white" : "bg-slate-400"
-        }  ${
-          active ? "-right-[0%]" : "-right-[100%]"
-        } w-full items-center justify-center space-y-5 md:right-0 md:items-center md:opacity-[100%] md:h-max md:space-y-0 md:bg-transparent md:space-x-5 md:relative md:flex-row md:top-0 md:w-max`}
-      >
-        <div className="block text-2xl md:hidden">
-          <RxCross1 onClick={() => setActive(!active)} />
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="logo"
+            className="rounded-full w-12 h-12 shadow-md border-2 border-teal-400"
+          />
+          <span className="font-bold text-2xl text-teal-500 tracking-tight">Victor</span>
+        </Link>
+        <div className="hidden md:flex gap-8 items-center">
+          {navigation.map((item, index) => (
+            item.to.startsWith('http') ? (
+              <a
+                href={item.to}
+                key={item.name + index}
+                className="text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-teal-500 transition relative group"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="inline-block pb-1 border-b-2 border-transparent group-hover:border-teal-500 transition-all duration-300">{item.name}</span>
+              </a>
+            ) : (
+              <Link
+                to={item.to}
+                key={item.name + index}
+                className="text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-teal-500 transition relative group"
+              >
+                <span className="inline-block pb-1 border-b-2 border-transparent group-hover:border-teal-500 transition-all duration-300">{item.name}</span>
+              </Link>
+            )
+          ))}
+          <Theme />
         </div>
+        <div className="md:hidden flex items-center gap-2">
+          <Theme />
+          <button
+            className="text-3xl text-teal-500 focus:outline-none"
+            onClick={() => setActive(!active)}
+            aria-label="Open menu"
+          >
+            <AiOutlineMenu />
+          </button>
+        </div>
+      </div>
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden fixed top-0 left-0 w-full h-full bg-white/90 dark:bg-gray-900/95 z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ${active ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        style={{backdropFilter: 'blur(8px)'}}
+      >
+        <button
+          className="absolute top-6 right-6 text-3xl text-gray-700 dark:text-gray-200"
+          onClick={() => setActive(false)}
+          aria-label="Close menu"
+        >
+          <RxCross1 />
+        </button>
         {navigation.map((item, index) => (
           item.to.startsWith('http') ? (
             <a
               href={item.to}
               key={item.name + index}
-              className={`text-xl font-extrabold md:text-xl`}
+              className="text-2xl font-semibold text-gray-700 dark:text-gray-200 hover:text-teal-500 transition"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setActive(!active)}
+              onClick={() => setActive(false)}
             >
               {item.name}
             </a>
@@ -75,27 +109,13 @@ const Navbar = () => {
             <Link
               to={item.to}
               key={item.name + index}
-              className={`text-xl font-extrabold md:text-xl`}
-              onClick={() => setActive(!active)}
+              className="text-2xl font-semibold text-gray-700 dark:text-gray-200 hover:text-teal-500 transition"
+              onClick={() => setActive(false)}
             >
               {item.name}
             </Link>
           )
         ))}
-
-        <div className="hidden md:block">
-          <Theme />
-        </div>
-      </div>
-
-      <div className="flex flex-row items-center space-x-3 md:hidden">
-        <div className="block md:hidden">
-          <Theme />
-        </div>
-        <AiOutlineMenu
-          className="text-2xl"
-          onClick={() => setActive(!active)}
-        />
       </div>
     </nav>
   );
