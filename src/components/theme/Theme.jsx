@@ -6,19 +6,15 @@ const ThemeContext = React.createContext({
   toggleDark: () => {},
 });
 
-function Theme({ textClass }) {
+function Theme() {
   const { isDark, toggleDark } = useContext(ThemeContext);
-
-  useEffect(() => {
-    document.body.classList.toggle("bg-gray-800", isDark);
-    document.body.classList.toggle("text-white", isDark);
-    document.body.classList.toggle("bg-gray-100", !isDark);
-    document.body.classList.toggle("text-gray-800", !isDark);
-  }, [isDark]);
-
   return (
-    <button onClick={toggleDark} className={`py-2 px-4 rounded`}>
-      {isDark ? <FaSun /> : <FaMoon className={textClass} />}
+    <button
+      onClick={toggleDark}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-300 hover:text-sky-500 hover:border-sky-400 dark:hover:text-sky-400 shadow-sm transition"
+    >
+      {isDark ? <FaSun size={15} /> : <FaMoon size={15} />}
     </button>
   );
 }
@@ -26,25 +22,22 @@ function Theme({ textClass }) {
 function ThemeProvider({ children }) {
   const [isDark, setIsDark] = React.useState(() => {
     try {
-      const storedIsDark = localStorage.getItem("isDark");
-      return storedIsDark === "true";
-    } catch (error) {
-      console.error(error);
+      const stored = localStorage.getItem("isDark");
+      if (stored !== null) return stored === "true";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } catch {
       return false;
     }
   });
 
   useEffect(() => {
-    try {
-      localStorage.setItem("isDark", JSON.stringify(isDark));
-    } catch (error) {
-      console.error(error);
-    }
+    const root = document.documentElement;
+    if (isDark) root.classList.add("dark");
+    else root.classList.remove("dark");
+    try { localStorage.setItem("isDark", String(isDark)); } catch { /* noop */ }
   }, [isDark]);
 
-  const toggleDark = () => {
-    setIsDark((prevDark) => !prevDark);
-  };
+  const toggleDark = () => setIsDark((prev) => !prev);
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleDark }}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { AiOutlineMenu } from "react-icons/ai";
 import { Theme } from "./theme/Theme";
@@ -10,114 +10,136 @@ const navigation = [
   { name: "About", to: "/about" },
   { name: "Projects", to: "/projects" },
   {
-    name: "Download my CV",
-    to:
-      "https://drive.google.com/file/d/1Lcx1-iZwV_bGCChPxl6CA2qDaphX-l3Y/view?usp=share_link",
+    name: "Download CV",
+    to: "https://drive.google.com/file/d/1Lcx1-iZwV_bGCChPxl6CA2qDaphX-l3Y/view?usp=share_link",
+    highlight: true,
   },
 ];
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+  const closeButtonRef = useRef(null);
+  const openButtonRef = useRef(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!active) return;
+    const handleKeyDown = (e) => { if (e.key === "Escape") closeMenu(); };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [active]);
+
+  useEffect(() => {
+    if (active) closeButtonRef.current?.focus();
+    else openButtonRef.current?.focus();
+  }, [active]);
+
+  useEffect(() => {
+    document.body.style.overflow = active ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [active]);
+
+  const closeMenu = () => setActive(false);
 
   return (
-    <nav
-      className={`backdrop-blur-md bg-white/70 dark:bg-gray-900/80 fixed top-0 left-0 w-full z-50 shadow transition-all duration-300 ${scrollPosition > 0 ? 'border-b border-gray-200 dark:border-gray-700' : ''}`}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
-        <Link to="/" className="flex items-center gap-3">
-          <img
-            src={logo}
-            alt="logo"
-            className="rounded-full w-12 h-12 shadow-md border-2 border-teal-400"
-          />
-          <span className="font-bold text-2xl text-teal-500 tracking-tight">Victor</span>
-        </Link>
-        <div className="hidden md:flex gap-8 items-center">
-          {navigation.map((item, index) => (
-            item.to.startsWith('http') ? (
-              <a
-                href={item.to}
-                key={item.name + index}
-                className="text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-teal-500 transition relative group"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="inline-block pb-1 border-b-2 border-transparent group-hover:border-teal-500 transition-all duration-300">{item.name}</span>
-              </a>
-            ) : (
-              <Link
-                to={item.to}
-                key={item.name + index}
-                className="text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-teal-500 transition relative group"
-              >
-                <span className="inline-block pb-1 border-b-2 border-transparent group-hover:border-teal-500 transition-all duration-300">{item.name}</span>
-              </Link>
-            )
-          ))}
-          <Theme />
+    <>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 dark:bg-slate-900/95 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800"
+          : "bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm"
+      }`}>
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-5 sm:px-8 py-3">
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <img src={logo} alt="Victor logo" className="rounded-full w-9 h-9 border-2 border-sky-400 shadow" />
+            <span className="font-bold text-lg text-slate-900 dark:text-white group-hover:text-sky-500 transition">
+              Victor<span className="text-sky-500">.</span>
+            </span>
+          </Link>
+
+          {/* Desktop nav */}
+          <div className="hidden md:flex gap-6 items-center">
+            {navigation.map((item) =>
+              item.to.startsWith("http") ? (
+                item.highlight ? (
+                  <a key={item.name} href={item.to} target="_blank" rel="noopener noreferrer"
+                    className="text-sm font-semibold text-white bg-sky-500 hover:bg-sky-600 px-5 py-2 rounded-full shadow transition">
+                    {item.name}
+                  </a>
+                ) : (
+                  <a key={item.name} href={item.to} target="_blank" rel="noopener noreferrer"
+                    className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-sky-500 transition">
+                    {item.name}
+                  </a>
+                )
+              ) : (
+                <Link key={item.name} to={item.to}
+                  className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-sky-500 relative group transition">
+                  {item.name}
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-sky-500 group-hover:w-full transition-all duration-300 rounded-full" />
+                </Link>
+              )
+            )}
+            <Theme />
+          </div>
+
+          {/* Mobile controls */}
+          <div className="md:hidden flex items-center gap-2">
+            <Theme />
+            <button
+              ref={openButtonRef}
+              onClick={() => setActive(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={active}
+              aria-controls="mobile-nav"
+              className="text-xl text-slate-700 dark:text-slate-200 p-1.5 rounded focus-visible:ring-2 focus-visible:ring-sky-500 outline-none"
+            >
+              <AiOutlineMenu />
+            </button>
+          </div>
         </div>
-        <div className="md:hidden flex items-center gap-2">
-          <Theme />
-          <button
-            className="text-3xl text-teal-500 focus:outline-none"
-            onClick={() => setActive(!active)}
-            aria-label="Open menu"
-          >
-            <AiOutlineMenu />
-          </button>
-        </div>
-      </div>
-      {/* Mobile menu */}
+      </nav>
+
+      {/* Mobile drawer */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full h-full bg-white/90 dark:bg-gray-900/95 z-40 flex flex-col items-center justify-center gap-8 transition-all duration-300 ${active ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        style={{backdropFilter: 'blur(8px)'}}
+        id="mobile-nav"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        className={`md:hidden fixed inset-0 bg-white dark:bg-slate-900 z-[60] flex flex-col items-center justify-center gap-7 transition-all duration-300 ${
+          active ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
       >
         <button
-          className="absolute top-6 right-6 text-3xl text-gray-700 dark:text-gray-200"
-          onClick={() => setActive(false)}
-          aria-label="Close menu"
+          ref={closeButtonRef}
+          onClick={closeMenu}
+          aria-label="Close navigation menu"
+          className="absolute top-5 right-5 text-xl text-slate-600 dark:text-slate-300 hover:text-sky-500 p-1.5 rounded focus-visible:ring-2 focus-visible:ring-sky-500 outline-none"
         >
           <RxCross1 />
         </button>
-        {navigation.map((item, index) => (
-          item.to.startsWith('http') ? (
-            <a
-              href={item.to}
-              key={item.name + index}
-              className="text-2xl font-semibold text-gray-700 dark:text-gray-200 hover:text-teal-500 transition"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setActive(false)}
-            >
+        {navigation.map((item) =>
+          item.to.startsWith("http") ? (
+            <a key={item.name} href={item.to} target="_blank" rel="noopener noreferrer"
+              className={`text-xl font-bold transition ${item.highlight ? "text-sky-500" : "text-slate-800 dark:text-white hover:text-sky-500"}`}
+              onClick={closeMenu}>
               {item.name}
             </a>
           ) : (
-            <Link
-              to={item.to}
-              key={item.name + index}
-              className="text-2xl font-semibold text-gray-700 dark:text-gray-200 hover:text-teal-500 transition"
-              onClick={() => setActive(false)}
-            >
+            <Link key={item.name} to={item.to}
+              className="text-xl font-bold text-slate-800 dark:text-white hover:text-sky-500 transition"
+              onClick={closeMenu}>
               {item.name}
             </Link>
           )
-        ))}
+        )}
       </div>
-    </nav>
+    </>
   );
 };
 

@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import Repos from "./Repos";
 import { Dna } from "react-loader-spinner";
-import moment from "moment";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { MdOutlineFollowTheSigns, MdLocationOn } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
+
+const USERNAME = process.env.REACT_APP_GITHUB_USERNAME || "Vonmak";
+
+function formatJoinDate(iso) {
+  try {
+    return new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(new Date(iso));
+  } catch {
+    return "";
+  }
+}
 
 function Github() {
   const [repos, setRepos] = useState([]);
@@ -11,90 +21,74 @@ function Github() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const username = "Vonmak";
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const reposRes = await fetch(
-          `https://api.github.com/users/${username}/repos?sort=created&direction=desc`
-        );
-        const reposData = await reposRes.json();
-        setRepos(reposData);
-
-        const userRes = await fetch(`https://api.github.com/users/${username}`);
-        const userData = await userRes.json();
-
+        const [reposRes, userRes] = await Promise.all([
+          fetch(`https://api.github.com/users/${USERNAME}/repos?sort=created&direction=desc`),
+          fetch(`https://api.github.com/users/${USERNAME}`),
+        ]);
+        if (!reposRes.ok) throw new Error(`Repos: ${reposRes.status} ${reposRes.statusText}`);
+        if (!userRes.ok) throw new Error(`User: ${userRes.status} ${userRes.statusText}`);
+        const [reposData, userData] = await Promise.all([reposRes.json(), userRes.json()]);
+        setRepos(Array.isArray(reposData) ? reposData : []);
         setUser(userData);
-      } catch (error) {
-        setError(error);
+      } catch (err) {
+        setError(err.message || "Failed to load GitHub data.");
       } finally {
         setLoading(false);
       }
     };
     fetchData();
-  }, [username]);
+  }, []);
 
   if (loading) {
     return (
-      <div>
-        <Dna
-          visible={true}
-          height="80"
-          width="full"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper"
-        />
-        Loading...
+      <div className="flex flex-col items-center justify-center py-12 gap-3">
+        <Dna visible height="60" width="60" ariaLabel="loading GitHub data" />
+        <p className="text-sm text-slate-400">Loading GitHub data...</p>
       </div>
     );
   }
+
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return (
+      <div className="text-center py-8 text-sm">
+        <p className="text-red-400 font-medium">Could not load GitHub data</p>
+        <p className="text-slate-400 mt-1">{error}</p>
+      </div>
+    );
   }
 
   return (
     <div>
-      <div className="rounded m-3 p-4 shadow-lg flex justify-between">
-        <div className="flex">
-          <img
-            src={user.avatar_url}
-            alt={user.login ? `${user.login} GitHub avatar` : "GitHub avatar"}
-            className="rounded-full w-16 h-16 mx-2"
-          />
-          <div className="flex flex-col justify-center ">
-            <div>{user.login}</div>
-            <div>Joined: {moment(user.created_at).format("MMMM Do YYYY")}</div>
-          </div>
-        </div>
-        <div className="flex items-center">
-          <div className="flex pr-2">
-            <BsFillPeopleFill fontSize={20} className="pr-1" />
-            Followers {user.followers}
-          </div>
-          |
-          <div className="flex pl-2">
-            <MdOutlineFollowTheSigns fontSize={20} className="pr-1" /> Following{" "}
-            {user.following}
-          </div>
-        </div>
-      </div>
-      <div className="border rounded mb-10 p-2 ">
-        <div className="m-3 p-4 flex justify-between">
+      {/* Profile card */}
+      <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 mb-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+        <div className="flex items-center gap-4">
+          <img src={user.avatar_url} alt={`${user.login} avatar`}
+            className="rounded-full w-14 h-14 border-2 border-sky-400 shadow flex-shrink-0" />
           <div>
-            <p>Profile Bio</p>
-            <p>{user.bio}</p>
-          </div>
-          <div>{user.public_repos} Repositories</div>
-          <div className="flex pl-1">
-            <MdLocationOn fontSize={20} />
-            {user.location}
+            <div className="flex items-center gap-2">
+              <FaGithub className="text-slate-500 dark:text-slate-400" />
+              <span className="font-bold text-slate-900 dark:text-white text-sm">{user.login}</span>
+            </div>
+            {user.bio && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 max-w-xs">{user.bio}</p>}
+            {user.created_at && <p className="text-xs text-slate-400 mt-0.5">Joined {formatJoinDate(user.created_at)}</p>}
           </div>
         </div>
-        <Repos repos={repos} />
+        <div className="flex flex-wrap gap-4 text-xs text-slate-600 dark:text-slate-300">
+          <span className="flex items-center gap-1"><BsFillPeopleFill className="text-sky-500" /><b className="text-slate-800 dark:text-white">{user.followers}</b> Followers</span>
+          <span className="flex items-center gap-1"><MdOutlineFollowTheSigns className="text-sky-500" /><b className="text-slate-800 dark:text-white">{user.following}</b> Following</span>
+          {user.location && <span className="flex items-center gap-1"><MdLocationOn className="text-sky-500" />{user.location}</span>}
+          <span><b className="text-slate-800 dark:text-white">{user.public_repos}</b> Repos</span>
+        </div>
       </div>
+
+      {repos.length > 0
+        ? <Repos repos={repos} />
+        : <p className="text-center text-sm text-slate-400 py-6">No public repositories found.</p>
+      }
     </div>
   );
 }
